@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { auth } from "../../firebase";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
-const Register = () => {
+const Register = (props) => {
   const [email, setEmail] = useState("");
 
+  const { user } = useSelector((state) => ({ ...state }));
+
+  useEffect(() => {
+    if (user && user.token) {
+      props.history.push("/");
+    }
+  }, [user]);
+
   const handleSubmit = async (event) => {
-    console.log("EVN-------->", process.env.REACT_APP_REGISTER_REDIRECT_URL);
     event.preventDefault();
     const config = {
       url: process.env.REACT_APP_REGISTER_REDIRECT_URL,
