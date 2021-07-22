@@ -20,20 +20,34 @@ const Header = () => {
 
   return (
     <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-      <Item key="home" icon={<CodeOutlined />}>
+      <Item className="float-start" key="home" icon={<CodeOutlined />}>
         <Link to="/">Home</Link>
       </Item>
-      <Item key="regsiter" icon={<UserAddOutlined />} className=".float-right">
-        <Link to="/register">Register</Link>
-      </Item>
-      <Item key="login" icon={<UserOutlined />} className=".float-right">
-        <Link to="/login">Login</Link>
-      </Item>
-
-      <SubMenu key="SubMenu" icon={<SettingOutlined />} title="Settings">
+      <SubMenu
+        className="float-start"
+        key="SubMenu"
+        icon={<SettingOutlined />}
+        title="Settings"
+      >
         <Item key="setting:1">Dashboard</Item>
         <Item key="setting:2">Login</Item>
       </SubMenu>
+
+      <Item key="regsiter" className="float-end" icon={<UserAddOutlined />}>
+        <Link className="float-end" to="/register">
+          Register
+        </Link>
+      </Item>
+      <Item
+        key="login"
+        icon={<UserOutlined />}
+        className="float-end"
+        style={{ float: "right" }}
+      >
+        <Link className="float-end" to="/login">
+          Login
+        </Link>
+      </Item>
     </Menu>
   );
 };
