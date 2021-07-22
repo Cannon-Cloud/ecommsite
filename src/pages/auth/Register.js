@@ -31,10 +31,12 @@ const Register = () => {
       <input
         type="email"
         className="form-control"
+        placeholder="Your email"
         value={email}
         onChange={onChangeHandler}
         autoFocus
       />
+      <br />
 
       <button type="submit" className="btn btn-raised">
         Register
@@ -47,7 +49,6 @@ const Register = () => {
       <div className="row">
         <div className="col-md-6 offset-md-3">
           <h4>Register</h4>
-         
           {registerForm()}
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Menu } from "antd";
 import {
   CodeOutlined,
   SettingOutlined,
-  UserOutlined,
+  LoginOutlined,
   UserAddOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
@@ -35,15 +35,10 @@ const Header = () => {
 
   return (
     <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-      <Item className="float-start" key="home" icon={<CodeOutlined />}>
+      <Item key="home" icon={<CodeOutlined />}>
         <Link to="/">Home</Link>
       </Item>
-      <SubMenu
-        className="float-start"
-        key="SubMenu"
-        icon={<SettingOutlined />}
-        title="Settings"
-      >
+      <SubMenu key="SubMenu" icon={<SettingOutlined />} title="Settings">
         <Item key="setting:1">Dashboard</Item>
         <Item key="setting:2">Login</Item>
         <Item icon={<LogoutOutlined />} onClick={logout} key="logout">
@@ -58,7 +53,7 @@ const Header = () => {
       </Item>
       <Item
         key="login"
-        icon={<UserOutlined />}
+        icon={<LoginOutlined />}
         className="float-end"
         style={{ float: "right" }}
       >
